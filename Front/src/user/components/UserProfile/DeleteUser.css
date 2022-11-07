@@ -1,0 +1,74 @@
+.delete-user {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+.delete-user p {
+    margin: 0;
+}
+
+.delete-user-title {
+    font-weight: 600;
+}
+
+.delete-user-text {
+    font-size: 0.9rem;
+}
+
+.delete-user-button {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #B91C1C;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-user-button:hover {
+    background-color: #9A1A1A;
+    transition: 0.3s;
+}
+
+.delete-user-confirm-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.delete-user-confirm-button-cancel {
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-user-confirm-button-cancel:hover {
+    background-color: #1F2937;
+    transition: 0.3s;
+}
+
+.delete-user-confirm-button-confirm {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #B91C1C;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-user-confirm-button-confirm:hover {
+    background-color: #9A1A1A;
+    transition: 0.3s;
+}
+
+

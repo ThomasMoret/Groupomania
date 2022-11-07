@@ -165,3 +165,11 @@ export const editUser = async (id, firstname, lastname, bio, image) => {
     console.log(error);
   }
 };
+
+export const deleteUser = async (id) => {
+  try {
+    await axios.delete(`${URL_API}/user/${id}`, config);
+  } catch (error) {
+    console.log(error);
+  }
+};
