@@ -1,0 +1,54 @@
+.trending-posts__item-list {
+    list-style: none;
+    border: solid 1px #2f333d;
+    border-top: solid 1px transparent;
+    padding: 1rem;
+}
+
+.trending-posts__item-list:hover {
+    border: solid 1px orange;
+    transition: all 0.3s ease-in-out;
+}
+
+.trending-posts__item-list:hover .trending-posts-item__link {
+    color: orange;
+    transition: all 0.3s ease-in-out;
+}
+
+.trending-posts__item-list:hover .trending-posts-item__up__user{
+    color: orange;
+    transition: all 0.3s ease-in-out;
+}
+
+.trending-posts__item-list p {
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+}
+
+.trending-posts-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.trending-posts-item__up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgb(113, 118, 123);
+}
+
+.trending-posts-item__like {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.trending-posts-item__link {
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,0 +1,48 @@
+.right-side {
+    height: 100vh;
+    width: 30vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0);
+    color: #fff;
+    border-left: 1px solid #2f333d;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.right-side-posts {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 1500px) {
+    .right-side-posts {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .right-side-posts {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .right-side-posts {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 1050px) {
+    .right-side {
+        display: none;
+    }
+}

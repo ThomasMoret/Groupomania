@@ -1,0 +1,11 @@
+.user-posts {
+    width: 40vw;
+    height: 100%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1050px) {
+    .user-posts {
+        width: 100%;
+    }
+}

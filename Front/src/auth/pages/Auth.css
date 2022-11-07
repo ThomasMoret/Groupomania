@@ -1,0 +1,59 @@
+.auth {
+    overflow: hidden;
+}
+
+
+.bg-image {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+
+}
+
+.bg-image__container {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    background-image: url("../../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.auth__container {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding:  2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+@media (max-width: 768px) {
+    .auth__container {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+}
+
+@media (max-height: 669px) {
+    .auth__container {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+}
+
+
