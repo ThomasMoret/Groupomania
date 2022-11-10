@@ -24,10 +24,10 @@ const Comments = ({
   const userId = user._id;
 
   const showAllComments = () => {
-    if (window.location.pathname === "/home") {
-      return true;
+    if (window.location.pathname === "/post/" + postId) {
+      return false;
     }
-    return false;
+    return true;
   };
 
   const handleCreateComment = async (e) => {
