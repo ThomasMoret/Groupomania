@@ -15,6 +15,10 @@
 
 - Clone the repository
 
+```bash
+git clone git@github.com:ThomasMoret/Groupomania.git
+```
+
 #### Backend
 
 - Open the backend folder
@@ -23,9 +27,12 @@
 - The server will run on port 5000
 - Add your cluster information in the MongoDB.js file in the config folder
 - Create a .env file in the backend folder and add :
-  - DB_USERNAME=your username
-  - DB_PASSWORD=your password
-  - DB_TOKEN=your secret key for the token
+
+```
+   DB_USERNAME=your username
+   DB_PASSWORD=your password
+   DB_TOKEN=your secret key for the token
+```
 
 #### Frontend
 
