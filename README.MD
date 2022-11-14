@@ -25,13 +25,12 @@ git clone git@github.com:ThomasMoret/Groupomania.git
 - Run `npm install` to install the dependencies
 - Run `npm start` to start the server
 - The server will run on port 5000
-- Add your cluster information in the MongoDB.js file in the config folder
 - Create a .env file in the backend folder and add :
 
 ```
-   DB_USERNAME=your username
-   DB_PASSWORD=your password
-   DB_TOKEN=your secret key for the token
+DB_PASSWORD=projet7
+DB_USERNAME=Naerv
+DB_TOKEN=J89G48VA.YE2-BX3zezd
 ```
 
 #### Frontend
