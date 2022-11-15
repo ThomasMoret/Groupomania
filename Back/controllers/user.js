@@ -62,52 +62,41 @@ exports.updateUser = (req, res) => {
   }
 };
 
-exports.deleteUser = (req, res) => {
+exports.deleteUser = async (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.DB_TOKEN);
     const userId = decodedToken.userId;
-    User.findOne({ _id: req.params.id })
-      .then((user) => {
-        if (user._id.toString() === userId) {
-          Post.updateMany(
-            { comments: { $elemMatch: { commenterId: req.params.id } } },
-            { $pull: { comments: { commenterId: req.params.id } } }
-          )
-            .then(() => {
-              Post.find({ userId: req.params.id })
-                .then((posts) => {
-                  Post.deleteMany({ userId: req.params.id })
-                    .then(() => {
-                      posts.forEach((post) => {
-                        if (post.picture) {
-                          const filename = post.picture.split("/images/")[1];
-                          fs.existsSync(`images/${filename}`) &&
-                            fs.unlinkSync(`images/${filename}`);
-                        }
-                      });
-                    })
-                    .catch((error) => res.status(400).json({ error }));
-                })
-                .catch((error) => res.status(400).json({ error }));
-            })
-            .catch((error) => res.status(400).json({ error }));
-          User.deleteOne({ _id: req.params.id })
-            .then(() => {
-              if (user.picture) {
-                const filename = user.picture.split("/images/")[1];
-                fs.existsSync(`images/${filename}`) &&
-                  fs.unlinkSync(`images/${filename}`);
-              }
-              res.status(200).json({ message: "User deleted !" });
-            })
-            .catch((error) => res.status(400).json({ error }));
-        } else {
-          res.status(401).json({ error: "Unauthorized" });
+    const user = await User.findOne({ _id: req.params.id });
+    if (user._id.toString() === userId) {
+      await Post.updateMany(
+        { comments: { $elemMatch: { commenterId: req.params.id } } },
+        { $pull: { comments: { commenterId: req.params.id } } }
+      );
+      await Post.updateMany(
+        { likers: { $elemMatch: { $eq: req.params.id } } },
+        { $pull: { likers: req.params.id }, $inc: { likes: -1 } }
+      );
+      const posts = await Post.find({ userId: req.params.id });
+      await Post.deleteMany({ userId: req.params.id });
+      posts.forEach((post) => {
+        if (post.picture) {
+          const filename = post.picture.split("/images/")[1];
+          fs.existsSync(`images/${filename}`) &&
+            fs.unlinkSync(`images/${filename}`);
         }
-      })
-      .catch((error) => res.status(404).json({ error }));
-  } catch {
-    res.status(401).json({ error: "Unauthorized" });
+      });
+      await User.deleteOne({ _id: req.params.id });
+      if (user.picture) {
+        const filename = user.picture.split("/images/")[1];
+        fs.existsSync(`images/${filename}`) &&
+          fs.unlinkSync(`images/${filename}`);
+      }
+      res.status(200).json({ message: "User deleted !" });
+    } else {
+      res.status(401).json({ error: "Unauthorized" });
+    }
+  } catch (error) {
+    res.status(404).json({ error });
   }
 };

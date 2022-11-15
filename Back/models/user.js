@@ -52,8 +52,6 @@ const userSchema = mongoose.Schema(
       maxlength: 250,
       default: "Cette personne n'a pas encore écrit de bio",
     },
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     isAdmin: { type: Boolean, default: false },
   },
   {
