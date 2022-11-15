@@ -28,9 +28,9 @@ git clone git@github.com:ThomasMoret/Groupomania.git
 - Create a .env file in the backend folder and add :
 
 ```
-DB_PASSWORD=projet7
-DB_USERNAME=Naerv
-DB_TOKEN=J89G48VA.YE2-BX3zezd
+DB_PASSWORD=projet7 or your password
+DB_USERNAME=Naerv or your username
+DB_TOKEN=J89G48VA.YE2-BX3zezd or your secret key for the token
 ```
 
 #### Frontend
